@@ -1,0 +1,6 @@
+{
+  "mail_host": "smtp.gmail.com",
+  "mail_port": 465,
+  "mail_username": "ssomnevaetsya@gmail.com",
+  "email_container": "dentistry_email:8082"
+}

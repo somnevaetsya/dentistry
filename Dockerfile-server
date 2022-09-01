@@ -1,0 +1,28 @@
+FROM golang:alpine as builder
+
+WORKDIR /src
+
+COPY go.mod ./
+COPY go.sum ./
+
+RUN go mod download
+
+RUN apk add --update musl-dev libwebp-dev gcc
+
+COPY . .
+
+RUN go build -o server ./cmd/api/
+
+FROM alpine:latest
+
+WORKDIR /root/
+
+COPY . .
+
+RUN apk add --update musl-dev libwebp-dev gcc
+
+COPY --from=builder /src/server .
+
+EXPOSE 8080
+CMD ["sleep", "10"]
+CMD ["./server"]

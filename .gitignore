@@ -1,0 +1,6 @@
+server
+session-app
+email-app
+.idea
+.logs
+db_postgres

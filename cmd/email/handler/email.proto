@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+//protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative handler/session.proto
+
+package handler;
+
+option go_package = "./handler";
+
+message EmailModel {
+  string email = 1;
+  string code = 2;
+}
+
+message NothingSec {
+  bool dummy = 1;
+}
+
+service EmailChecker{
+  rpc SendEmail(EmailModel) returns (NothingSec) {}
+}
