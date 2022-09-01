@@ -1,0 +1,5 @@
+{
+  "redis_container": "redis:6379",
+  "session_container": "dentistry_session:8081",
+  "cookie_expiration": 3
+}

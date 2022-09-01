@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package handler;
+
+option go_package = "./handler";
+
+message UserId {
+  uint64 id = 1;
+}
+
+message SessionModel {
+  uint64 userid = 1;
+  string cookieValue = 2;
+}
+
+message CodeModel {
+  uint64 userid = 1;
+  string code = 2;
+}
+
+message Code {
+  string code = 1;
+}
+
+message SessionValue {
+  string cookieValue = 1;
+}
+
+message Nothing {
+  bool dummy = 1;
+}
+
+service SessionChecker{
+  rpc Create(SessionModel) returns (Nothing) {}
+  rpc Get (SessionValue) returns (UserId) {}
+  rpc Delete (SessionValue) returns (Nothing) {}
+  rpc CreateCode(CodeModel) returns (Nothing) {}
+  rpc GetCode(UserId) returns (Code) {}
+  rpc DeleteCode(UserId) returns (Nothing) {}
+}

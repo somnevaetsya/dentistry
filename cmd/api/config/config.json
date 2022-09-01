@@ -1,0 +1,18 @@
+{
+  "server_port": "8080",
+  "postgres_port": "5432",
+  "urls" : {
+    "root_url": "/api",
+    "profile_url": "/profile",
+    "login_url": "/login",
+    "register_url": "/register",
+    "logout_url": "/logout",
+    "upload_url": "/upload",
+    "refactor_url": "/refactor",
+    "verify_url": "/verify"
+  },
+  "session_container": "dentistry_session:8081",
+  "email_container": "dentistry_email:8082",
+  "log_file": ".logs",
+  "cookie_expiration" : 3
+}
